@@ -1,0 +1,34 @@
+.content {
+  margin-top: 40px;
+  margin-bottom: 20px;
+  display: grid;
+  grid-template-columns: 20% auto 20%;
+}
+
+.mainContent {
+  grid-column: 2;
+  /* background-color: green; */
+}
+
+.rightColumn {
+  display: flex;
+  flex-direction: column-reverse;
+  align-items: center;
+  grid-column: 3;
+  /* background-color: yellow; */
+}
+
+.leftColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  grid-column: 1;
+  /* background-color: blue; */
+}
+
+.fab {
+  background-color: #8a2be2;
+}
+.fab:hover {
+  background-color: #7b28c9;
+}
