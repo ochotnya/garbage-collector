@@ -42,7 +42,7 @@ export default function MyProfile({ items }) {
 }
 
 async function GetList() {
-  const response = await axios.get("http://localhost:3000/api/garbages");
+  const response = await axios.get("/api/garbages");
   const items = response.data;
   return items;
 }
