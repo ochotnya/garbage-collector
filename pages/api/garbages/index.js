@@ -7,7 +7,6 @@ dbConnect();
 export default withApiAuthRequired(async (req, res) => {
   const { method } = req;
   const session = getSession(req, res);
-  console.log(session.user);
   switch (method) {
     case "GET":
       try {

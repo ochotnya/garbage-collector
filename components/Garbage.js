@@ -47,34 +47,36 @@ function Garbage(props) {
           {!isMy && <>{props.data.ownerName} udostępnił Tobie</>}
         </div>
         <div className={styles.rightColumn}>
-          <div
-            className={
-              openPopup
-                ? styles.removeControlsShown
-                : styles.removeControlsHidden
-            }
-          >
-            {openPopup ? (
-              <div className={styles.removeText}>Czy usunąć ten element?</div>
-            ) : (
-              <button
-                className={styles.removeButton}
-                onClick={() => setOpenPopup(true)}
-              >
-                <DeleteOutlineIcon />
-              </button>
-            )}
-
-            <button className={styles.confirmButton} onClick={deleteItem}>
-              <CheckIcon />
-            </button>
-            <button
-              className={styles.denyButton}
-              onClick={() => setOpenPopup(false)}
+          {isMy && (
+            <div
+              className={
+                openPopup
+                  ? styles.removeControlsShown
+                  : styles.removeControlsHidden
+              }
             >
-              <DoDisturbIcon />
-            </button>
-          </div>
+              {openPopup ? (
+                <div className={styles.removeText}>Czy usunąć ten element?</div>
+              ) : (
+                <button
+                  className={styles.removeButton}
+                  onClick={() => setOpenPopup(true)}
+                >
+                  <DeleteOutlineIcon />
+                </button>
+              )}
+
+              <button className={styles.confirmButton} onClick={deleteItem}>
+                <CheckIcon />
+              </button>
+              <button
+                className={styles.denyButton}
+                onClick={() => setOpenPopup(false)}
+              >
+                <DoDisturbIcon />
+              </button>
+            </div>
+          )}
         </div>
       </div>
 

@@ -9,16 +9,9 @@ function NewGarbage(props) {
   const [text, setText] = useState("");
   const [expiration, setExpiration] = useState(7);
   const [mailArray, setMailArray] = useState([]);
+  const [email, setEmail] = useState("");
 
   // define functions for reading user inputs
-  const updateText = (e) => {
-    setText(e.target.value);
-  };
-
-  const updateExpiration = (e) => {
-    setExpiration(e.target.value);
-  };
-
   const addEmail = (email) => {
     setMailArray([...mailArray, email]);
   };
@@ -30,7 +23,8 @@ function NewGarbage(props) {
   // define user actions
   const enterEmail = (e) => {
     if (e.key === "Enter") {
-      addEmail(e.target.value);
+      addEmail(email);
+      setEmail("");
     }
   };
 
@@ -52,7 +46,6 @@ function NewGarbage(props) {
         "Content-Type": "application/json",
       },
     });
-    // .then((res) => props.hide());
     props.hide();
     props.refresh();
   };
@@ -60,14 +53,24 @@ function NewGarbage(props) {
     <div className={styles.newGarbage}>
       <div className={styles.contentRow}>
         Treść:{" "}
-        <input type="text" onChange={updateText} className={styles.content} />{" "}
+        <input
+          type="text"
+          onChange={(e) => setText(e.target.value)}
+          className={styles.content}
+        />{" "}
         <button className={styles.attachFileButton}>
           <AttachFileIcon />
         </button>
       </div>
 
       <div>
-        Udostępnij tym osobom: <input type="text" onKeyPress={enterEmail} />
+        Udostępnij tym osobom:{" "}
+        <input
+          type="text"
+          onKeyPress={enterEmail}
+          onChange={(e) => setEmail(e.target.value)}
+          value={email}
+        />
         {mailArray.map((mail, index) => (
           <>
             {" "}
@@ -88,7 +91,7 @@ function NewGarbage(props) {
         <input
           type="number"
           value={expiration}
-          onChange={updateExpiration}
+          onChange={(e) => setExpiration(e.target.value)}
         ></input>{" "}
         dni
       </div>
