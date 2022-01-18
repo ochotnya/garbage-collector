@@ -4,15 +4,23 @@
   width: 60%;
   background: #eeeeee;
   mix-blend-mode: normal;
-  /* box-shadow: 4px 4px 10px 2px rgba(0, 0, 0, 0.25),
-    -4px -4px 10px 2px rgba(0, 0, 0, 0.25); */
   box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104, 121, 0.288);
   border-radius: 10px;
   margin-top: 45px;
   padding: 10px 20px 10px 20px;
   gap: 10px;
   width: 100%;
-  animation: expand-item 0.4s;
+  animation: load-item 0.4s;
+  overflow: hidden;
+}
+
+@keyframes load-item {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .GarbageWall {
@@ -21,9 +29,68 @@
   align-items: center;
 }
 
+.header {
+  display: grid;
+  columns: auto 30px;
+}
+
 .owner {
   color: rgba(138, 43, 226, 1);
   font-size: 0.9rem;
+  grid-column: 1;
+}
+
+.rightColumn {
+  grid-column: 2;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  color: #797979;
+}
+
+.rightColumn button {
+  border: none;
+  cursor: pointer;
+}
+
+.removeButton {
+  color: #797979;
+}
+
+.removeText {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confirmButton {
+  color: rgb(113, 219, 113);
+}
+
+.confirmButton:hover {
+  color: green;
+}
+
+.denyButton {
+  color: rgb(231, 111, 111);
+}
+
+.denyButton:hover {
+  color: red;
+}
+
+.removeControlsHidden {
+  display: flex;
+  flex-direction: row;
+  transition: ease-out 100ms;
+  transform: translateX(80%);
+}
+
+.removeControlsShown {
+  display: flex;
+  flex-direction: row;
+  transform: translateX(0);
+  transition: ease-in 100ms;
 }
 
 .content {
@@ -35,13 +102,4 @@
 .removeDate {
   font-size: 0.7rem;
   color: #a4a4a4;
-}
-
-@keyframes expand-item {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
 }

@@ -45,15 +45,16 @@ function NewGarbage(props) {
     sharedTo: mailArray,
   };
 
-  const saveData = () => {
+  const saveData = async () => {
     console.log(newEntry);
-    axios
-      .post("/api/garbages", newEntry, {
-        headers: {
-          "Content-Type": "application/json",
-        },
-      })
-      .then((res) => props.hide());
+    await axios.post("/api/garbages", newEntry, {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+    // .then((res) => props.hide());
+    props.hide();
+    props.refresh();
   };
   return (
     <div className={styles.newGarbage}>

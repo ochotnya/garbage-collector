@@ -31,8 +31,13 @@ export default function MyProfile({ items }) {
       />
       <div className={styles.content}>
         <div className={styles.mainContent}>
-          {showNew && <NewGarbage hide={() => setShowNew(false)} />}
-          <GarbageWall data={itemList} />
+          {showNew && (
+            <NewGarbage
+              hide={() => setShowNew(false)}
+              refresh={() => refreshList()}
+            />
+          )}
+          <GarbageWall data={itemList} refresh={() => refreshList()} />
         </div>
 
         <div className={styles.rightColumn}></div>
