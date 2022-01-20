@@ -5,6 +5,9 @@ import Chip from "@mui/material/Chip";
 import AttachFileIcon from "@mui/icons-material/AttachFile";
 
 function NewGarbage(props) {
+  const bucketURL =
+    "https://garbage-collector-files.s3.eu-central-1.amazonaws.com/";
+  const [myURL, setMyURL] = useState("");
   // define state
   const [text, setText] = useState("");
   const [expiration, setExpiration] = useState(7);
@@ -12,6 +15,33 @@ function NewGarbage(props) {
   const [email, setEmail] = useState("");
 
   // define functions for reading user inputs
+  const handleUpload = async (e) => {
+    const file = e.target.files[0];
+    console.log(file.type);
+    const response = await axios.post(
+      "api/s3",
+      { type: file.type, name: file.name },
+      {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+    const { url } = await response.data;
+    console.log(url);
+    try {
+      await axios.put(url, file, {
+        headers: {
+          "Content-Type": file.type,
+          ACL: "public-read",
+        },
+      });
+    } catch (error) {
+      console.log(error);
+    }
+    setMyURL(`${bucketURL}/${file.name}`);
+    console.log(myURL);
+  };
   const addEmail = (email) => {
     setMailArray([...mailArray, email]);
   };
@@ -52,17 +82,18 @@ function NewGarbage(props) {
   return (
     <div className={styles.newGarbage}>
       <div className={styles.contentRow}>
+        {myURL && <img src={myURL} />}
         Treść:{" "}
         <input
           type="text"
           onChange={(e) => setText(e.target.value)}
           className={styles.content}
         />{" "}
-        <button className={styles.attachFileButton}>
+        {/* <button className={styles.attachFileButton}>
           <AttachFileIcon />
-        </button>
+        </button> */}
       </div>
-
+      <input type="file" onChange={handleUpload} />
       <div>
         Udostępnij tym osobom:{" "}
         <input

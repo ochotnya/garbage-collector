@@ -8,7 +8,7 @@ import axios from "axios";
 
 function Garbage(props) {
   const [openPopup, setOpenPopup] = useState(false);
-  const date = new Date(props.data.removeDate);
+  const date = new Date(props.data.expire);
   const { user } = useUser();
   const isMy = props.data.createdBy === user.sub;
   const sharedCount = props.data.sharedTo.length;
