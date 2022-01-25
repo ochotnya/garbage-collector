@@ -1,34 +1,14 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+This is a Next.js application, which allows you to store notes, share them with other users. Notes are automatically disposed at a time specified by the user.
 
-## Getting Started
+## Hosting
+App is hosted on Heroku: https://garbage-collector-app.herokuapp.com/
+It is connected to this repository, so the applications is automatically updated.
 
-First, run the development server:
+## Logging in
+To log in you can create new account or use your Google account. All authorization and authentication processes are handled by auth0 services
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+## How to use?
+Right now the functionality is very basic. You can add new item using the "+" in top left corner. Add your text, define who can see it by adding user emails and set the expiration date. Newly created item will be saved and available to you and specified users. You can remove item manualy using the bin icon.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Database
+This application connects to MongoDB which stores all users items. MongoDB also handles automatic removal of these items by using TTL index.
