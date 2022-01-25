@@ -3,7 +3,6 @@ import Garbage from "../../../models/garbageModel";
 import { withApiAuthRequired, getSession } from "@auth0/nextjs-auth0";
 import { addDaysToDate } from "../../../utils/helperFunctions";
 dbConnect();
-// Garbage.createIndexes({ expires: 1 }, { expireAfterSeconds: 0 });
 
 export default withApiAuthRequired(async (req, res) => {
   const { method } = req;
@@ -31,7 +30,6 @@ export default withApiAuthRequired(async (req, res) => {
         const newGarbage = new Garbage({
           ownerName: session.user.name,
           sharedTo: req.body.sharedTo,
-          // removeDate: addDaysToDate(creationDate, days),
           createdAt: creationDate,
           createdBy: session.user.sub,
           content: req.body.content,

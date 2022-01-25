@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import styles from "../styles/NewGarbage.module.css";
 import axios from "axios";
 import Chip from "@mui/material/Chip";
-import AttachFileIcon from "@mui/icons-material/AttachFile";
 
 function NewGarbage(props) {
   const bucketURL =
@@ -89,11 +88,7 @@ function NewGarbage(props) {
           onChange={(e) => setText(e.target.value)}
           className={styles.content}
         />{" "}
-        {/* <button className={styles.attachFileButton}>
-          <AttachFileIcon />
-        </button> */}
       </div>
-      <input type="file" onChange={handleUpload} />
       <div>
         Udostępnij tym osobom:{" "}
         <input
@@ -118,7 +113,7 @@ function NewGarbage(props) {
       </div>
 
       <div>
-        Wywieź śmiecia za:{" "}
+        Wywieź śmieć za:{" "}
         <input
           type="number"
           value={expiration}
