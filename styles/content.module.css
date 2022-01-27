@@ -1,13 +1,13 @@
 .content {
   margin-top: 40px;
   margin-bottom: 20px;
-  display: grid;
-  grid-template-columns: 20% auto 20%;
+  display: flex;
+  justify-content: center;
+  /* grid-template-columns: 20% auto 20%; */
 }
 
 .mainContent {
   grid-column: 2;
-  /* background-color: green; */
 }
 
 .rightColumn {
@@ -15,7 +15,7 @@
   flex-direction: column-reverse;
   align-items: center;
   grid-column: 3;
-  /* background-color: yellow; */
+  background-color: yellow;
 }
 
 .leftColumn {
@@ -23,7 +23,7 @@
   flex-direction: column;
   align-items: center;
   grid-column: 1;
-  /* background-color: blue; */
+  background-color: blue;
 }
 
 .fab {
