@@ -1,34 +1,18 @@
 .content {
-  margin-top: 40px;
-  margin-bottom: 20px;
-  display: flex;
-  justify-content: center;
-  /* grid-template-columns: 20% auto 20%; */
-}
-
-.mainContent {
-  grid-column: 2;
-}
-
-.rightColumn {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: center;
-  grid-column: 3;
-  background-color: yellow;
-}
-
-.leftColumn {
   display: flex;
   flex-direction: column;
   align-items: center;
-  grid-column: 1;
-  background-color: blue;
+  width: 100%;
+  margin: 10px;
 }
 
-.fab {
-  background-color: #8a2be2;
+@media only screen and (min-width: 600px) {
+  .content {
+    max-width: 900px;
+  }
 }
-.fab:hover {
-  background-color: #7b28c9;
+
+.page {
+  display: flex;
+  justify-content: center;
 }

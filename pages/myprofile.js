@@ -23,7 +23,7 @@ export default function MyProfile({ items }) {
     refreshList();
   }, []);
   return (
-    <div>
+    <div className={styles.page}>
       <TopBar
         user={user}
         eventAddNew={showHideNew}

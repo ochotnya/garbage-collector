@@ -3,7 +3,7 @@
   flex-direction: column;
   background: #eeeeee;
   mix-blend-mode: normal;
-  box-shadow: -3px -3px 7px #ffffff73, 3px 3px 5px rgba(94, 104, 121, 0.288);
+  box-shadow: -3px -3px 7px #ffffffa6, 3px 3px 5px rgba(94, 104, 121, 0.288);
   border-radius: 10px;
   margin-top: 45px;
   padding: 10px 20px 10px 20px;
@@ -28,6 +28,7 @@
   align-items: center;
   width: 100%;
   margin: 10px;
+  /* background-color: red; */
 }
 @media only screen and (min-width: 600px) {
   .GarbageWall {
